@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Anomalia Gemini</title>
+  <link rel="stylesheet" href="styles/popup.css" />
+  <script src="chart.umd.js"></script> </head>
+<body>
+  <div class="tabs">
+    <button class="tab-link active" data-tab="config">Configuración</button>
+    <button class="tab-link" data-tab="stats">Estadísticas</button>
+  </div>
+
+  <div id="config" class="tab-content active">
+    <div class="container">
+      <h2>Configuración General</h2>
+      <div class="opcion">
+        <label for="colorSelect">Color de marcado:</label>
+        <select id="colorSelect">
+          <option value="red">Rojo</option>
+          <option value="blue">Azul</option>
+        </select>
+      </div>
+      <div class="opcion">
+        <label for="panel-position">Posición del panel:</label>
+        <select id="panel-position">
+          <option value="top-right">Arriba derecha</option>
+          <option value="top-left">Arriba izquierda</option>
+          <option value="bottom-right">Abajo derecha</option>
+          <option value="bottom-left">Abajo izquierda</option>
+        </select>
+      </div>
+      <hr>
+      <h2>Listas Personalizadas</h2>
+      <div class="opcion">
+        <label for="whitelist">Lista Blanca (un dominio por línea):</label>
+        <textarea id="whitelist" rows="3" placeholder="ejemplo.com"></textarea>
+      </div>
+      <div class="opcion">
+        <label for="blacklist">Lista Negra (un dominio por línea):</label>
+        <textarea id="blacklist" rows="3" placeholder="sitio-malicioso.xyz"></textarea>
+      </div>
+      <hr>
+      <h2>Análisis con IA</h2>
+      <div class="opcion">
+        <label for="gemini-api-key">API Key de Gemini:</label>
+        <input type="password" id="gemini-api-key" placeholder="Pega tu API Key aquí">
+        <small>Obtén tu clave en Google AI Studio.</small>
+      </div>
+      <button id="guardarBtn">Guardar Opciones</button>
+      <div id="estadoGuardado" class="estado"></div>
+    </div>
+  </div>
+
+  <div id="stats" class="tab-content">
+    <div class="container">
+      <div class="stats-header">
+        <h2>Tu Resumen de Seguridad</h2>
+        <select id="stats-period">
+          <option value="week">Esta Semana</option>
+          <option value="month">Este Mes</option>
+          <option value="year">Este Año</option>
+        </select>
+      </div>
+      
+      <div class="chart-container">
+        <canvas id="detectionsChart"></canvas>
+      </div>
+      <div id="top-domains-container">
+        <h3>Top Dominios Bloqueados</h3>
+        <ul id="top-domains-list"><li>Cargando...</li></ul>
+      </div>
+      <div class="chart-container">
+        <h3>Tu Nivel de Cautela</h3>
+        <canvas id="carefulnessChart"></canvas>
+        <p id="carefulness-score" class="score-text">Puntaje: 0</p>
+      </div>
+      
+      <div class="stats-actions">
+        <button id="downloadStatsBtn">Descargar Informe</button>
+        <button id="resetStatsBtn">Reiniciar Estadísticas</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
