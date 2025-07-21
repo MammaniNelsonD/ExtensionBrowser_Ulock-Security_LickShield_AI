@@ -3,7 +3,7 @@
 
 # Ulock-Security_LinkShield_AI — Analizador de Enlaces de Correo 🛡️
 
-[Ver video en TikTok](https://www.tiktok.com/ @p4im0n_hacking/video/7528964714014067974?is_from_webapp=1&sender_device=pc&web_id=7520052095870993976)
+[@p4im0n_hacking en TikTok](https://www.tiktok.com/p4im0n_hacking/video/7528964714014067974)
 
 ¡Estamos muy emocionados de presentar una nueva herramienta en la que estuvimos trabajando, diseñada para cambiar la forma en que interactuamos con la seguridad en nuestro correo electrónico! 🛡️
 
