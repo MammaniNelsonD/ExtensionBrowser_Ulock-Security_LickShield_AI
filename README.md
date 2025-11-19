@@ -14,6 +14,7 @@
 ## Características Principales
 
 -✅**Detección en tiempo real**: Analiza los enlaces dentro de tus correos y los marca visualmente según su nivel de riesgo (peligroso, dudoso o seguro).
+
  🟢 Verde: Para enlaces verificados y seguros.
 
  🟠 Naranja: Para enlaces dudosos (como acortadores o dominios extraños) que requieren precaución.
