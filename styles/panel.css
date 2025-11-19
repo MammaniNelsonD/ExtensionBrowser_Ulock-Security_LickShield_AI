@@ -1,0 +1,129 @@
+/* --- Animación de Parpadeo --- */
+@keyframes pulse-red {
+    0% { outline-color: rgba(255, 0, 0, 0.4); }
+    50% { outline-color: rgba(255, 0, 0, 1); }
+    100% { outline-color: rgba(255, 0, 0, 0.4); }
+}
+@keyframes pulse-orange {
+    0% { outline-color: rgba(255, 165, 0, 0.4); }
+    50% { outline-color: rgba(255, 165, 0, 1); }
+    100% { outline-color: rgba(255, 165, 0, 0.4); }
+}
+@keyframes pulse-green {
+    0% { outline-color: rgba(52, 168, 83, 0.3); }
+    50% { outline-color: rgba(52, 168, 83, 1); }
+    100% { outline-color: rgba(52, 168, 83, 0.3); }
+}
+
+/* --- Clases de Riesgo para los Enlaces --- */
+.anomalia-peligroso, .anomalia-dudoso, .anomalia-seguro {
+    outline-style: solid;
+    outline-width: 2px;
+    outline-offset: 2px;
+    border-radius: 3px;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.anomalia-peligroso { animation-name: pulse-red; }
+.anomalia-dudoso { animation-name: pulse-orange; }
+.anomalia-seguro { animation-name: pulse-green; }
+
+
+/* --- Estilos del Panel --- */
+.anomalia-panel {
+    position: fixed;
+    width: 320px;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 10000;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    display: none;
+    word-wrap: break-word;
+}
+
+/* --- AÑADIDO: Botón de Cierre --- */
+#anomalia-close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    line-height: 22px;
+    text-align: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+#anomalia-close-btn:hover {
+    background-color: #e53935; /* Rojo al pasar el ratón */
+    color: white;
+}
+
+
+/* Posiciones */
+.anomalia-panel.top-right { top: 20px; right: 20px; }
+.anomalia-panel.top-left { top: 20px; left: 20px; }
+.anomalia-panel.bottom-right { bottom: 20px; right: 20px; }
+.anomalia-panel.bottom-left { bottom: 20px; left: 20px; }
+
+.anomalia-section {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.anomalia-section p {
+    margin: 5px 0 0;
+}
+
+.anomalia-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.anomalia-actions button {
+    flex: 1;
+    padding: 8px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    transition: background-color 0.2s;
+}
+
+#analizar-con-ia {
+    background-color: #4285F4;
+}
+#analizar-con-ia:hover {
+    background-color: #357ae8;
+}
+
+#analizar-con-vt {
+    background-color: #5f6368;
+}
+#analizar-con-vt:hover {
+    background-color: #3c4043;
+}
+
+
+#ia-analysis-result {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border-top: 2px solid #e0e0e0;
+}

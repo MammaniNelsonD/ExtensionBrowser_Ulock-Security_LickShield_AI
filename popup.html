@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ulock-Security LinkShield AI</title>
+    <link rel="stylesheet" href="styles/popup.css">
+</head>
+<body>
+    <div class="header">
+        <img src="icons/icon48.png" alt="Logo">
+        <h1>LinkShield AI</h1>
+    </div>
+    <div class="tabs">
+        <button class="tab-link active" data-tab="config">Configuración</button>
+        <button class="tab-link" data-tab="stats">Estadísticas</button>
+    </div>
+
+    <div id="config" class="tab-content active">
+        <div class="form-group">
+            <label for="extension-enabled">Estado de la extensión</label>
+            <div class="toggle-container">
+                <span>Desactivada</span>
+                <label class="switch">
+                    <input type="checkbox" id="extension-enabled">
+                    <span class="slider round"></span>
+                </label>
+                <span>Activada</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="gemini-api-key">Clave de API de Gemini</label>
+            <input type="password" id="gemini-api-key" placeholder="Pega tu clave aquí">
+            <small>
+                <a href="https://aistudio.google.com/u/2/api-keys" target="_blank" class="api-link">Obtén tu clave en Google AI Studio</a>
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="colorSelect">Color de Resaltado</label>
+            <select id="colorSelect">
+                <option value="default">Por Defecto (Rojo/Naranja)</option>
+                <option value="blue">Azul</option>
+                <option value="green">Verde</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="panel-position">Posición del panel de análisis</label>
+            <select id="panel-position">
+                <option value="top-right">Arriba a la derecha</option>
+                <option value="top-left">Arriba a la izquierda</option>
+                <option value="bottom-right">Abajo a la derecha</option>
+                <option value="bottom-left">Abajo a la izquierda</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="whitelist">Dominios en lista blanca (uno por línea)</label>
+            <textarea id="whitelist" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="blacklist">Dominios en lista negra (uno por línea)</label>
+            <textarea id="blacklist" rows="3"></textarea>
+        </div>
+        <button id="guardarBtn">Guardar Opciones</button>
+        <div id="estadoGuardado"></div>
+    </div>
+
+    <div id="stats" class="tab-content">
+        <div class="stats-header">
+            <h2>Resumen de Actividad</h2>
+            <select id="stats-period">
+                <option value="all">Desde siempre</option>
+                <option value="year">Último año</option>
+                <option value="month">Último mes</option>
+                <option value="week">Última semana</option>
+            </select>
+        </div>
+        <div class="chart-container">
+            <canvas id="detectionsChart"></canvas>
+        </div>
+        <div id="top-domains-container">
+            <h3>Top Dominios Detectados</h3>
+            <ul id="top-domains-list"></ul>
+        </div>
+        <div class="chart-container">
+            <h3>Nivel de Cautela</h3>
+            <canvas id="carefulnessChart"></canvas>
+            <div id="carefulness-score" class="score-text"></div>
+        </div>
+        <div class="stats-actions">
+            <button id="downloadStatsBtn">Descargar Informe (TXT)</button>
+            <button id="copyReportBtn">Copiar Informe</button>
+            <button id="resetStatsBtn">Borrar Datos</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>By P4IM0N</span>
+    </div>
+
+    <script src="chart.umd.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

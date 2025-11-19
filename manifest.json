@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "Ulock-Security_LinkShield_AI — Analizador de Enlaces de Correo",
+  "description": "Protege tu seguridad en Gmail, Outlook y otros correos, detectando enlaces maliciosos con análisis de IA de Gemini. Previene phishing y fraudes en tiempo real.",
+  "version": "4.6.0",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "downloads",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*",
+    "https://outlook.live.com/*",
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mail.google.com/*",
+        "https://outlook.live.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles/panel.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches": [
+        "https://mail.google.com/*",
+        "https://outlook.live.com/*"
+      ],
+      "js": ["general_content.js"],
+      "css": ["styles/panel.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "author": "By Mamani Nelson (P4IM0N)",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
